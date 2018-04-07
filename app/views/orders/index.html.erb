@@ -1,0 +1,9 @@
+<h2>Order list</h2>
+<% if !@current.nil? %>
+    <h3>Current order</h3>
+    <%= render @current %>
+<% end %>
+<h3>Completed orders</h3>
+<%= render @completed_orders %>
+
+<%= link_to 'Products', products_index_path %>

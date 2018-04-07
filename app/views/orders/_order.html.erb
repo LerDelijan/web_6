@@ -1,0 +1,18 @@
+<div class="order">
+    <p>
+        <%= order.created_at %>
+    </p>
+    <ul>
+        <% order.order_items.each do |item| %>
+            <li>
+                <%= item.product.name %> - <%= item.quantity %>
+            </li>
+        <% end %>
+    </ul>
+    <% if !order.completed %>
+        <%= form_with url: orders_complete_path do |form|%>
+            <%= form.hidden_field :order_id, :value => order.id %>
+            <%= form.submit "Complete" %>
+        <% end %>
+    <% end %>
+</div>

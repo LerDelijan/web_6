@@ -1,0 +1,10 @@
+<div class="product">
+    <%= product.name %> - <%= product.price %> gold
+    <% if user_signed_in? %>
+        |
+        <%= form_with url: order_items_add_path, class: 'add-form' do |form|%>
+            <%= form.hidden_field :product_id, :value => product.id %>
+            <%= form.submit "Add" %>
+        <% end %>
+    <% end %>
+</div>
